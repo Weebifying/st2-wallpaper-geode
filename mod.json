@@ -16,6 +16,11 @@
 		]
 	},
 	"settings": {
+		"more": {
+			"name": "Wallpaper in only Main Menu",
+			"type": "bool",
+			"default": true
+		},
 		"particles": {
 			"name": "Toggle particles",
 			"type": "bool",
