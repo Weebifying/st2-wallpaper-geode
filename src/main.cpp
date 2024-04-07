@@ -1,6 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/CCDirector.hpp>
+#include <Geode/modify/LevelInfoLayer.hpp>
 using namespace geode::prelude;
 
 CCMenu* st2BG() {
@@ -54,7 +55,7 @@ CCMenu* st2BG() {
 		dict->setObject(CCString::create("-1"), "duration");
 		dict->setObject(CCString::create("2"), "particleLifespan");
 		dict->setObject(CCString::create("0"), "particleLifespanVariance");
-		dict->setObject(CCString::create("75"), "emission"); // this is NOT emission i have no idea what it actually is but it works so ¯\_(ツ)_/¯
+		// no emission :(
 		dict->setObject(CCString::create("-90"), "angle");
 		dict->setObject(CCString::create("90"), "angleVariance");
 		dict->setObject(CCString::create("29"), "speed");
@@ -120,6 +121,12 @@ void replaceBG(CCLayer* layer) {
 				auto* cachedTextures = CCTextureCache::sharedTextureCache()->m_pTextures;
 				for (auto [key, obj] : CCDictionaryExt<std::string, CCTexture2D*>(cachedTextures)) {
 					if (obj == texture) {
+						if (Loader::get()->isModLoaded("zalphalaneous.minecraft")) {
+							if (typeinfo_cast<CreatorLayer*>(layer)) {
+								done = true;
+								break;
+							}
+						}
 						if (key.ends_with("GJ_gradientBG.png") || key.ends_with("GJ_gradientBG-hd.png")) {
 							node->setVisible(false);
                             layer->addChild(st2BG(), node->getZOrder()-1);
@@ -169,7 +176,7 @@ class $modify(CCDirector) {
 		CCDirector::willSwitchToScene(scene);
 
 		if (auto layer = getChildOfType<CCLayer>(scene, 0)) { 
-			if (!Mod::get()->getSettingValue<bool>("more")) {
+			if (!Mod::get()->getSettingValue<bool>("only_main")) {
 				if (!typeinfo_cast<SecretLayer*>(layer)
 				&& !typeinfo_cast<SecretLayer2*>(layer)
 				&& !typeinfo_cast<SecretLayer3*>(layer)
@@ -180,4 +187,26 @@ class $modify(CCDirector) {
 			}
 		}
 	}
+};
+
+class $modify(LevelInfoLayer) {
+    void onPlay(CCObject* sender) {
+        LevelInfoLayer::onPlay(sender);
+
+        if (Mod::get()->getSettingValue<bool>("only_main")) {
+            auto sprite = this->getChildByID("play-menu")->getChildByID("play-button")->getChildByTag(1);
+            CCArrayExt<CCNodeRGBA*> children = sprite->getChildren();
+            for (auto* c : children) {
+                if (!typeinfo_cast<CCProgressTimer*>(c)) {
+                    if (c->getZOrder() == -4) {
+                        c->setVisible(false);
+                    } else {
+                        c->setOpacity(100);
+                        c->setColor(ccc3(0, 0, 0));
+                        c->setCascadeOpacityEnabled(false);
+                    }
+                }
+            }
+        }
+    }
 };

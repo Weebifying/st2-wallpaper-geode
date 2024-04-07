@@ -15,8 +15,15 @@
 			"res/*.png"
 		]
 	},
+	"dependencies": [
+		{
+			"id": "geode.node-ids",
+			"version": ">=1.8.0",
+			"importance": "required"
+		}
+	],
 	"settings": {
-		"more": {
+		"only_main": {
 			"name": "Wallpaper in only Main Menu",
 			"type": "bool",
 			"default": true
