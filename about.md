@@ -1,3 +1,7 @@
-# Template Mod
+# Sunix Thingy 2 Wallpaper
 
-Edit about.md to change this
+Adds an animated wallpaper throughout the game.
+
+<cr>Download</c> the Texture Pack: [add link here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+![Screenshot](weebify.st2_wallpaper/screenshot.png)

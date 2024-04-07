@@ -8,7 +8,10 @@
 	"version": "v1.0.0",
 	"id": "weebify.st2_wallpaper",
 	"name": "ST2 Wallpaper",
-	"developer": "Weebify",
+	"developers": [
+		"Weebify",
+		"Spectra"
+	],	
 	"description": "Custom Menu Wallpaper for Sunix Thingy 2",
 	"resources": {
 		"files": [
@@ -26,7 +29,7 @@
 		"only_main": {
 			"name": "Wallpaper in only Main Menu",
 			"type": "bool",
-			"default": true
+			"default": false
 		},
 		"particles": {
 			"name": "Toggle particles",
