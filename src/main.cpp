@@ -193,7 +193,7 @@ class $modify(LevelInfoLayer) {
     void onPlay(CCObject* sender) {
         LevelInfoLayer::onPlay(sender);
 
-        if (Mod::get()->getSettingValue<bool>("only_main")) {
+        if (!Mod::get()->getSettingValue<bool>("only_main")) {
             auto sprite = this->getChildByID("play-menu")->getChildByID("play-button")->getChildByTag(1);
             CCArrayExt<CCNodeRGBA*> children = sprite->getChildren();
             for (auto* c : children) {
