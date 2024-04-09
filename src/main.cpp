@@ -48,59 +48,60 @@ CCMenu* st2BG() {
 
 
 	if (Mod::get()->getSettingValue<bool>("particles")) {
-		auto dict = CCDictionary::createWithContentsOfFileThreadSafe("dragEffect.plist");
-		dict->setObject(CCString::create("0"), "emitterType");
+		auto dict = CCDictionary::createWithContentsOfFileThreadSafe("particleEffect.plist"_spr);
+		// dict->setObject(CCString::create("0"), "emitterType");
 
-		dict->setObject(CCString::create("150"), "maxParticles");
-		dict->setObject(CCString::create("-1"), "duration");
-		dict->setObject(CCString::create("2"), "particleLifespan");
-		dict->setObject(CCString::create("0"), "particleLifespanVariance");
+		// dict->setObject(CCString::create("150"), "maxParticles");
+		// dict->setObject(CCString::create("-1"), "duration");
+		// dict->setObject(CCString::create("2"), "particleLifespan");
+		// dict->setObject(CCString::create("0"), "particleLifespanVariance");
 		// no emission :(
-		dict->setObject(CCString::create("-90"), "angle");
-		dict->setObject(CCString::create("90"), "angleVariance");
-		dict->setObject(CCString::create("29"), "speed");
-		dict->setObject(CCString::create("0"), "speedVariance");
-		dict->setObject(CCString::create("0"), "sourcePositionx");
-		dict->setObject(CCString::create("0"), "sourcePositiony");
+		// dict->setObject(CCString::create("-90"), "angle");
+		// dict->setObject(CCString::create("90"), "angleVariance");
+		// dict->setObject(CCString::create("29"), "speed");
+		// dict->setObject(CCString::create("0"), "speedVariance");
+		// dict->setObject(CCString::create("0"), "sourcePositionx");
+		// dict->setObject(CCString::create("0"), "sourcePositiony");
 		dict->setObject(CCString::createWithFormat("%f", winSize.width), "sourcePositionVariancex");
-		dict->setObject(CCString::create("0"), "sourcePositionVariancey");
-		dict->setObject(CCString::create("0"), "gravityx");
+		// dict->setObject(CCString::create("0"), "sourcePositionVariancey");
+		// dict->setObject(CCString::create("0"), "gravityx");
 		dict->setObject(CCString::createWithFormat("%f", winSize.height/1.5f), "gravityy");
-		dict->setObject(CCString::create("0"), "radialAcceleration");
-		dict->setObject(CCString::create("0"), "radialAccelVariance");
-		dict->setObject(CCString::create("0"), "tangentialAcceleration");
-		dict->setObject(CCString::create("14"), "tangentialAccelVariance");
+		// dict->setObject(CCString::create("0"), "radialAcceleration");
+		// dict->setObject(CCString::create("0"), "radialAccelVariance");
+		// dict->setObject(CCString::create("0"), "tangentialAcceleration");
+		// dict->setObject(CCString::create("14"), "tangentialAccelVariance");
 
-		dict->setObject(CCString::create("4"), "startParticleSize");
-		dict->setObject(CCString::create("3"), "startParticleSizeVariance");
-		dict->setObject(CCString::create("2"), "endParticleSize");
-		dict->setObject(CCString::create("2"), "endParticleSizeVariance");
-		dict->setObject(CCString::create("0"), "rotationStart");
-		dict->setObject(CCString::create("0"), "rotationStartVariance");
-		dict->setObject(CCString::create("0"), "rotationEnd");
-		dict->setObject(CCString::create("0"), "rotationEndVariance");
-		dict->setObject(CCString::create("1"), "startColorRed");
-		dict->setObject(CCString::create("0"), "startColorVarianceRed");
-		dict->setObject(CCString::create("1"), "startColorGreen");
-		dict->setObject(CCString::create("0"), "startColorVarianceGreen");
-		dict->setObject(CCString::create("1"), "startColorBlue");
-		dict->setObject(CCString::create("0"), "startColorVarianceBlue");
-		dict->setObject(CCString::create("1"), "startColorAlpha");
-		dict->setObject(CCString::create("0.25"), "startColorVarianceAlpha");
-		dict->setObject(CCString::create("1"), "finishColorRed");
-		dict->setObject(CCString::create("0"), "finishColorVarianceRed");
-		dict->setObject(CCString::create("1"), "finishColorGreen");
-		dict->setObject(CCString::create("0"), "finishColorVarianceGreen");
-		dict->setObject(CCString::create("1"), "finishColorBlue");
-		dict->setObject(CCString::create("0"), "finishColorVarianceBlue");
-		dict->setObject(CCString::create("1"), "finishColorAlpha");
-		dict->setObject(CCString::create("0"), "finishColorVarianceAlpha");
+		// dict->setObject(CCString::create("4"), "startParticleSize");
+		// dict->setObject(CCString::create("3"), "startParticleSizeVariance");
+		// dict->setObject(CCString::create("2"), "finishParticleSize");
+		// dict->setObject(CCString::create("2"), "finishParticleSizeVariance");
+		// dict->setObject(CCString::create("0"), "rotationStart");
+		// dict->setObject(CCString::create("0"), "rotationStartVariance");
+		// dict->setObject(CCString::create("0"), "rotationEnd");
+		// dict->setObject(CCString::create("0"), "rotationEndVariance");
+		// dict->setObject(CCString::create("1"), "startColorRed");
+		// dict->setObject(CCString::create("0"), "startColorVarianceRed");
+		// dict->setObject(CCString::create("1"), "startColorGreen");
+		// dict->setObject(CCString::create("0"), "startColorVarianceGreen");
+		// dict->setObject(CCString::create("1"), "startColorBlue");
+		// dict->setObject(CCString::create("0"), "startColorVarianceBlue");
+		// dict->setObject(CCString::create("1"), "startColorAlpha");
+		// dict->setObject(CCString::create("0.25"), "startColorVarianceAlpha");
+		// dict->setObject(CCString::create("1"), "finishColorRed");
+		// dict->setObject(CCString::create("0"), "finishColorVarianceRed");
+		// dict->setObject(CCString::create("1"), "finishColorGreen");
+		// dict->setObject(CCString::create("0"), "finishColorVarianceGreen");
+		// dict->setObject(CCString::create("1"), "finishColorBlue");
+		// dict->setObject(CCString::create("0"), "finishColorVarianceBlue");
+		// dict->setObject(CCString::create("1"), "finishColorAlpha");
+		// dict->setObject(CCString::create("0"), "finishColorVarianceAlpha");
 
-		dict->setObject(CCString::create("particle_25_001.png"), "textureFileName");
+		// dict->setObject(CCString::create("particle_25_001.png"), "textureFileName");
 		
 		auto emitter = CCParticleSystemQuad::create();
 		emitter->initWithDictionary(dict, false);
-
+		// emitter->CCParticleSystem::setTexture(CCSprite::create("skull.png"_spr)->getTexture());
+	
 		emitter->setPosition(winSize / 2);
 		emitter->setPositionY(0);
 		emitter->setID("emitter");
@@ -129,7 +130,8 @@ void replaceBG(CCLayer* layer) {
 						}
 						if (key.ends_with("GJ_gradientBG.png") || key.ends_with("GJ_gradientBG-hd.png")) {
 							node->setVisible(false);
-                            layer->addChild(st2BG(), node->getZOrder()-1);
+							if (!layer->getChildByID("st2-background"))
+                            	layer->addChild(st2BG(), node->getZOrder()-1);
 
 							CCArrayExt<CCNode*> children = layer->getChildren();
                             for (auto child : children) {
