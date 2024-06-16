@@ -1,7 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/CCDirector.hpp>
-// #include <Geode/modify/LevelInfoLayer.hpp>
+#include <Geode/modify/LevelInfoLayer.hpp>
 using namespace geode::prelude;
 
 CCMenu* st2BG() {
