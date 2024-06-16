@@ -1,7 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/CCDirector.hpp>
-#include <Geode/modify/LevelInfoLayer.hpp>
+// #include <Geode/modify/LevelInfoLayer.hpp>
 using namespace geode::prelude;
 
 CCMenu* st2BG() {
@@ -48,6 +48,7 @@ CCMenu* st2BG() {
 
 
 	if (Mod::get()->getSettingValue<bool>("particles")) {
+		log::info("test");
 		auto dict = CCDictionary::createWithContentsOfFileThreadSafe("particleEffect.plist"_spr);
 		// dict->setObject(CCString::create("0"), "emitterType");
 
