@@ -48,9 +48,8 @@ CCMenu* st2BG() {
 
 
 	if (Mod::get()->getSettingValue<bool>("particles")) {
-		log::info("test");
 		auto dict = CCDictionary::createWithContentsOfFileThreadSafe("particleEffect.plist"_spr);
-		// dict->setObject(CCString::create("0"), "emitterType");
+		dict->setObject(CCString::create("0"), "emitterType");
 
 		// dict->setObject(CCString::create("150"), "maxParticles");
 		// dict->setObject(CCString::create("-1"), "duration");
@@ -99,9 +98,12 @@ CCMenu* st2BG() {
 
 		// dict->setObject(CCString::create("particle_25_001.png"), "textureFileName");
 		
-		auto emitter = CCParticleSystemQuad::create();
+		// auto emitter = CCParticleSystemQuad::create();
+		auto emitter = CCParticleSystemQuad::create("particleEffect.plist"_spr, false); // lmao insane workaround by me yippee
 		emitter->initWithDictionary(dict, false);
-		// emitter->CCParticleSystem::setTexture(CCSprite::create("skull.png"_spr)->getTexture());
+
+		// emitter->setPosVar(CCPoint{ winSize.width, 0 });
+		// emitter->setGravity(CCPoint{ 0, winSize.height/1.5f });
 	
 		emitter->setPosition(winSize / 2);
 		emitter->setPositionY(0);
