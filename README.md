@@ -2,8 +2,10 @@
 
 This is where she makes a mod.
 
+<img src="logo.png" width="150" alt="the mod's logo" />
+
 Adds an animated wallpaper throughout the game.
 
-**Download** the Texture Pack: [add link here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+**Download** the Texture Pack: [here](https://youtu.be/WSNwPHsokT8)
 
 ![Screenshot](res/screenshot.png)
