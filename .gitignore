@@ -56,3 +56,6 @@ build-*/
 
 # Visual Studio
 .vs/
+
+# cmake build
+cmake-build-*/

@@ -118,7 +118,7 @@ void replaceBG(CCLayer* layer) {
 	int i = 0;
 	bool done = false;
 	while (i < layer->getChildrenCount()) {
-		auto node = getChildOfType<CCSprite>(layer, i);
+		auto node = layer->getChildByType<CCSprite>(i);
 
 		if (auto textureProtocol = typeinfo_cast<CCTextureProtocol*>(node)) {
 			if (auto texture = textureProtocol->getTexture()) {
@@ -149,8 +149,9 @@ void replaceBG(CCLayer* layer) {
                                 }
                             }
 
-                            if (typeinfo_cast<LevelSelectLayer*>(layer))
-                                getChildOfType<GJGroundLayer>(layer, 0)->setVisible(false);
+                            if (typeinfo_cast<LevelSelectLayer*>(layer)) {
+                                layer->getChildByType<GJGroundLayer>(0)->setVisible(false);
+                            }
 
 							done = true;
 						    break;
@@ -169,7 +170,7 @@ class $modify(MenuLayer) {
     bool init() {
         if (!MenuLayer::init()) return false;
 
-        getChildOfType<MenuGameLayer>(this, 0)->setVisible(false);
+    	this->getChildByType<MenuGameLayer>(0)->setVisible(false);
 		this->addChild(st2BG(), -1);
         
         return true;
@@ -180,7 +181,7 @@ class $modify(CCDirector) {
 	void willSwitchToScene(CCScene* scene) {
 		CCDirector::willSwitchToScene(scene);
 
-		if (auto layer = getChildOfType<CCLayer>(scene, 0)) { 
+		if (auto layer = scene->getChildByType<CCLayer>(0)) {
 			if (!Mod::get()->getSettingValue<bool>("only_main")) {
 				if (!typeinfo_cast<SecretLayer*>(layer)
 				&& !typeinfo_cast<SecretLayer2*>(layer)
